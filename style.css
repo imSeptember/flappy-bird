@@ -1,38 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
 }
 
+.score {
+  position: absolute;
+  z-index: 2;
+}
+
 .game-container {
   width: 500px;
+  height: 680px;
+  /* height: 730px; */
+  position: relative;
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 100%;
   height: 730px;
-  position: absolute;
-  left: 80px;
+  display: flex;
+  justify-content: center;
 }
 
-.border-left {
-  width: 80px;
-  height: 790px;
+.start-game {
+  background: url(img/message.png);
+  width: 184px;
+  height: 267px;
   position: absolute;
-  background-color: white;
-  z-index: +2;
-}
-
-.border-right {
-  width: 80px;
-  height: 790px;
-  position: absolute;
-  background-color: white;
-  z-index: +2;
-  left: 580px;
-}
-
-.border-top {
-  width: 660px;
-  height: 50px;
-  position: absolute;
-  background-color: white;
-  z-index: +2;
-  top: -50px;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .sky {
@@ -45,17 +49,20 @@ body {
 .ground {
   background: url(img/bottom-background.png);
   width: 500px;
-  height: 150px;
+  height: 100px;
+  /* height: 150px; */
   position: absolute;
   top: 580px;
   z-index: +1;
 }
 
 .bird {
-  background: url(img/flappy-bird.png);
   position: absolute;
   width: 60px;
   height: 45px;
+  display: none;
+  left: 220px;
+  bottom: 250px;
 }
 
 .obstacle {
@@ -71,4 +78,63 @@ body {
   height: 300px;
   position: absolute;
   transform: rotate(180deg);
+}
+
+.console-container {
+  margin-left: 10px;
+}
+
+.console {
+  background-color: #222a33;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 340px;
+  color: #ffff;
+}
+
+.gap {
+  margin-left: 10px;
+  font-size: 22px;
+  color: #ffff;
+}
+
+.top-screen {
+  margin-top: 25px;
+  margin-left: 10px;
+  font-size: 22px;
+  color: #ffff;
+}
+
+.bot-screen {
+  margin-left: 10px;
+  font-size: 22px;
+  color: #ffff;
+}
+
+.more {
+  width: 19px;
+  height: 19px;
+}
+
+.hard {
+  margin-top: 20px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.button {
+  width: 120px;
+  height: 50px;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  color: #0c0c0e;
+  background-color: #71c5d0;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-left: 10px;
+  margin-top: 10px;
 }

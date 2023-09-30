@@ -6,19 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <script src="index.js"></script>
+    <script src="dev.js"></script>
 </head>
 
 <body>
-    <div class="border-left"></div>
-    <div class="game-container">
-        <div class="border-top"></div>
-        <div class="sky">
-            <div class="bird"></div>
+    <div class="wrapper">
+        <div class="game-container">
+            <img class="score" src="/img/0.png" alt="">
+            <div class="start-game"></div>
+            <div class="sky">
+                <img class="bird" src="/img/yellowbird-midflap.png" alt="">
+            </div>
+            <div class="ground"></div>
         </div>
-        <div class="ground"></div>
+        <div class="console-container">
+            <div>
+                <button class="button" type="button">For developers</button>
+                <button class="button" type="button">Rules</button>
+                <button class="button" type="button">Leaderboard</button>
+            </div>
+            <div class="console">
+                <div class="top-screen">
+                    <h4>obsPosition: <span class="top-screen-content">0</span></h4>
+                </div>
+                <div class="gap">
+                    <h4>Gap: <span>430</span></h4>
+                    <h4>birdPosition: <span class="bird-position">250</span></h4>
+                </div>
+                <div class="bot-screen">
+                    <h4>obsHeight: <span class="bot-screen-content">0</span> </h4>
+                </div>
+
+                <div class="hard">Hardcoded collision:
+                    <pre>
+(obsPosition > 200 
+&& obsPosition < 280 
+&& (birdPosition < obsHeight + 200  
+|| birdPosition>
+obsHeight + gap - 150)) 
+|| birdPosition === 0</pre>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div class="border-right"></div>
 
 </body>
 
