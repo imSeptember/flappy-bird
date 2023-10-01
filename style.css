@@ -152,7 +152,7 @@
   width: 30px;
   right: 0;
   z-index: 4;
-  animation: rotateAnimation 4s linear infinite;
+  animation: rotateAnimation 15s linear infinite;
 }
 
 @keyframes rotateAnimation {
@@ -173,10 +173,9 @@
 }
 
 .console {
-  width: 90%;
   position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
   border-radius: 2px;
   border-top: 2px solid #71c5d0;
   color: #ffff;
@@ -186,3 +185,8 @@
   margin-top: 30px;
   text-align: center;
 }
+
+/* .changedText {
+  width: 100%;
+  height: 100%;
+} */
