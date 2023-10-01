@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const leaderBnt = document.getElementById("slide3");
   const text = document.querySelector(".changedText");
 
-  function changeDevops() {
+  function changeAbout() {
     text.textContent = `
-    ${textArr[3]}
+    ${textArr[3]} 
     ${textArr[4]}
     ${textArr[5]}`;
   }
@@ -43,6 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ${textArr[1]}
     ${textArr[2]}`;
   }
-  devopsBnt.addEventListener("click", changeDevops);
+  devopsBnt.addEventListener("click", changeAbout);
   rulesBnt.addEventListener("click", changeRules);
 });
