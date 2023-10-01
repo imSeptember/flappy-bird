@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  display: flex;
-}
-
 .score {
   position: absolute;
   z-index: 2;
@@ -150,4 +146,33 @@ body {
 
 .open-close {
   display: none;
+}
+
+.wrapper__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(40, 40, 40),
+    rgb(133, 133, 133)
+  );
+  padding: 10px;
+}
+
+.wrapper__footer img {
+  width: 200px;
+  margin-left: 90px;
+}
+
+.wrapper__footer div {
+  font-size: 20px;
+  color: white;
+}
+
+.wrapper__footer a {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
 }
