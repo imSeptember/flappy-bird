@@ -23,24 +23,25 @@
         </div>
         <div class="console-container">
             <div>
-                <button class="button" type="button">For developers</button>
-                <button class="button" type="button">Rules</button>
-                <button class="button" type="button">Leaderboard</button>
+                <div class="button slide0 hide">Open</div>
+                <a class="button slide1" id="slide1" href="#tab_01">For developers</a>
+                <a class="button slide2" href="#tab_02">Rules</a>
+                <a class="button slide3" href="#tab_03">Leaderboard</a>
             </div>
-            <div class="console">
+            <div class="console tab" id="tab_01">
                 <div class="top-screen">
                     <h4>obsPosition: <span class="top-screen-content">0</span></h4>
                 </div>
                 <div class="gap">
-                    <h4>Gap: <span>430</span></h4>
-                    <h4>birdPosition: <span class="bird-position">250</span></h4>
+                    <h4>Gap: 430</h4>
+                    <h4>birdPosition: <span class="bird-position">0</span></h4>
                 </div>
                 <div class="bot-screen">
-                    <h4>obsHeight: <span class="bot-screen-content">0</span> </h4>
+                    <h4>obsHeight: <span class="bot-screen-content">0</span></h4>
                 </div>
-
-                <div class="hard">Hardcoded collision:
+                <div class="hard">
                     <pre>
+Coded collision:
 (obsPosition > 200 
 && obsPosition < 280 
 && (birdPosition < obsHeight + 200  
@@ -48,6 +49,20 @@
 obsHeight + gap - 150)) 
 || birdPosition === 0</pre>
                 </div>
+            </div>
+            <div class="console tab" id="tab_02">
+                <div class="top-screen">
+                    <p>- Start a game by clicking in the center of the screen.</p>
+                    <p>- Hit spacebar to jump.</p>
+                    <p>- To win the game, you must avoid hitting pipes.</p>
+                    <p>- If you successfully avoid 10 pipes, you will win.</p>
+                </div>
+            </div>
+            <div class="console tab" id="tab_03">
+                <div class="top-screen">
+                    <p>Leaderboard:</p>
+                </div>
+
             </div>
         </div>
 
