@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     text.textContent = "1231";
   }
 
-  function changeDevops() {
+  function changeRules() {
     text.textContent = "Press 'W' to jump!";
   }
 
