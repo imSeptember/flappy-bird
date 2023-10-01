@@ -18,6 +18,31 @@ document.addEventListener("DOMContentLoaded", () => {
     "img/9.png",
   ];
 
+  //
+  // BUTTONS
+  //
+
+  const hideButton = document.querySelector(".hide");
+  const openClose = document.querySelector(".open-close");
+
+  function openOrClose() {
+    if (hideButton.classList.contains("hide")) {
+      openClose.style.display = "block";
+      hideButton.classList.remove("hide");
+      hideButton.textContent = "Close";
+    } else {
+      openClose.style.display = "none";
+      hideButton.classList.add("hide");
+      hideButton.textContent = "Settings";
+    }
+  }
+
+  hideButton.addEventListener("click", openOrClose);
+
+  //
+  // BUTTONS
+  //
+
   const start = document.querySelector(".start-game");
   const bird = document.querySelector(".bird");
   const gameDisplay = document.querySelector(".game-container");

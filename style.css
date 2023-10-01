@@ -113,11 +113,6 @@ body {
   color: #ffff;
 }
 
-.more {
-  width: 19px;
-  height: 19px;
-}
-
 .hard {
   margin-top: 20px;
   margin-left: 10px;
@@ -129,17 +124,20 @@ body {
   width: 120px;
   height: 50px;
   border-radius: 2px;
-  border: 1px solid #0c0c0e;
+  border: 2px solid #f8b830;
   color: #0c0c0e;
   background-color: #71c5d0;
   font-family: Inter;
   font-size: 16px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
   margin-top: 10px;
   text-align: center;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #f8b830;
 }
 
 .tab {
@@ -150,10 +148,6 @@ body {
   display: block;
 }
 
-.tab:before {
-  content: "";
-  height: 50px;
-  width: 33.333%;
-  position: absolute;
-  top: -50px;
+.open-close {
+  display: none;
 }

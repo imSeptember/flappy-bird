@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <script src="index.js"></script>
-    <script src="dev.js"></script>
 </head>
 
 <body>
@@ -22,25 +21,26 @@
             <div class="ground"></div>
         </div>
         <div class="console-container">
-            <div>
-                <div class="button slide0 hide">Open</div>
-                <a class="button slide1" id="slide1" href="#tab_01">For developers</a>
-                <a class="button slide2" href="#tab_02">Rules</a>
-                <a class="button slide3" href="#tab_03">Leaderboard</a>
-            </div>
-            <div class="console tab" id="tab_01">
-                <div class="top-screen">
-                    <h4>obsPosition: <span class="top-screen-content">0</span></h4>
+            <div class="button slide0 hide">Settings</div>
+            <div class="open-close">
+                <div>
+                    <a class="button slide1" id="slide1" href="#tab_01">For developers</a>
+                    <a class="button slide2" href="#tab_02">Rules</a>
+                    <a class="button slide3" href="#tab_03">Leaderboard</a>
                 </div>
-                <div class="gap">
-                    <h4>Gap: 430</h4>
-                    <h4>birdPosition: <span class="bird-position">0</span></h4>
-                </div>
-                <div class="bot-screen">
-                    <h4>obsHeight: <span class="bot-screen-content">0</span></h4>
-                </div>
-                <div class="hard">
-                    <pre>
+                <div class="console tab" id="tab_01">
+                    <div class="top-screen">
+                        <h4>obsPosition: <span class="top-screen-content">0</span></h4>
+                    </div>
+                    <div class="gap">
+                        <h4>Gap: 430</h4>
+                        <h4>birdPosition: <span class="bird-position">0</span></h4>
+                    </div>
+                    <div class="bot-screen">
+                        <h4>obsHeight: <span class="bot-screen-content">0</span></h4>
+                    </div>
+                    <div class="hard">
+                        <pre>
 Coded collision:
 (obsPosition > 200 
 && obsPosition < 280 
@@ -48,21 +48,22 @@ Coded collision:
 || birdPosition>
 obsHeight + gap - 150)) 
 || birdPosition === 0</pre>
+                    </div>
                 </div>
-            </div>
-            <div class="console tab" id="tab_02">
-                <div class="top-screen">
-                    <p>- Start a game by clicking in the center of the screen.</p>
-                    <p>- Hit spacebar to jump.</p>
-                    <p>- To win the game, you must avoid hitting pipes.</p>
-                    <p>- If you successfully avoid 10 pipes, you will win.</p>
+                <div class="console tab" id="tab_02">
+                    <div class="top-screen">
+                        <p>- Start a game by clicking in the center of the screen.</p>
+                        <p>- Hit spacebar to jump.</p>
+                        <p>- To win the game, you must avoid hitting pipes.</p>
+                        <p>- If you successfully avoid 10 pipes, you will win.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="console tab" id="tab_03">
-                <div class="top-screen">
-                    <p>Leaderboard:</p>
-                </div>
+                <div class="console tab" id="tab_03">
+                    <div class="top-screen">
+                        <p>Leaderboard:</p>
+                    </div>
 
+                </div>
             </div>
         </div>
 
