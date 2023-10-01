@@ -22,22 +22,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // BUTTONS
   //
 
-  const hideButton = document.querySelector(".hide");
+  const settings = document.querySelector(".settings");
   const openClose = document.querySelector(".open-close");
 
   function openOrClose() {
-    if (hideButton.classList.contains("hide")) {
+    if (settings.classList.contains("hide")) {
       openClose.style.display = "block";
-      hideButton.classList.remove("hide");
-      hideButton.textContent = "Close";
+      settings.classList.remove("hide");
+      settings.textContent = "Close";
     } else {
       openClose.style.display = "none";
-      hideButton.classList.add("hide");
-      hideButton.textContent = "Settings";
+      settings.classList.add("hide");
+      settings.textContent = "Settings";
     }
   }
 
-  hideButton.addEventListener("click", openOrClose);
+  settings.addEventListener("click", openOrClose);
 
   //
   // BUTTONS

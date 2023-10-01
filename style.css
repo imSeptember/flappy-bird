@@ -176,3 +176,17 @@
   color: white;
   text-decoration: none;
 }
+
+.settings {
+  position: absolute;
+  width: 30px;
+  right: 0;
+  z-index: 1;
+  animation: rotateAnimation 4s linear infinite;
+}
+
+@keyframes rotateAnimation {
+  100% {
+    transform: rotate(360deg); /* Rotate 360 degrees */
+  }
+}

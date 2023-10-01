@@ -14,6 +14,7 @@
     <div class="wrapper">
         <div class="game-container">
             <img class="score" src="/img/0.png" alt="">
+            <img class="settings" src="img/settings2.png" alt="settings">
             <div class="start-game"></div>
             <div class="sky">
                 <img class="bird" src="/img/yellowbird-midflap.png" alt="">
@@ -21,7 +22,6 @@
             <div class="ground"></div>
         </div>
         <div class="console-container">
-            <div class="button slide0 hide">Settings</div>
             <div class="open-close">
                 <div>
                     <a class="button slide1" id="slide1" href="#tab_01">For developers</a>
@@ -40,14 +40,11 @@
                         <h4>obsHeight: <span class="bot-screen-content">0</span></h4>
                     </div>
                     <div class="hard">
-                        <pre>
-Coded collision:
-(obsPosition > 200 
-&& obsPosition < 280 
-&& (birdPosition < obsHeight + 200  
-|| birdPosition>
-obsHeight + gap - 150)) 
-|| birdPosition === 0</pre>
+                        Coded collision:
+                        (obsPosition > 200
+                        && obsPosition < 280 && (birdPosition < obsHeight + 200 || birdPosition>
+                            obsHeight + gap - 150))
+                            || birdPosition === 0
                     </div>
                 </div>
                 <div class="console tab" id="tab_02">
