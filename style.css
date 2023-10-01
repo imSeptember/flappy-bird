@@ -6,7 +6,7 @@
 
 .score {
   position: absolute;
-  z-index: 2;
+  z-index: 4;
 }
 
 .game-container {
@@ -24,6 +24,7 @@
   height: 730px;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .start-game {
@@ -50,7 +51,7 @@
   height: 100px;
   position: absolute;
   top: 580px;
-  z-index: +1;
+  z-index: 3;
 }
 
 .bird {
@@ -77,51 +78,24 @@
   transform: rotate(180deg);
 }
 
-.console-container {
-  margin-left: 10px;
-}
-
-.console {
-  background-color: #71c5d0;
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  height: 340px;
-  color: #ffff;
-}
-
-.gap {
-  margin-left: 10px;
-  font-size: 22px;
-  color: #ffff;
-}
-
-.top-screen {
-  margin-top: 10px;
-  margin-left: 10px;
-  font-size: 22px;
-  color: #ffff;
-}
-
 .bot-screen {
   margin-left: 10px;
   font-size: 22px;
   color: #ffff;
 }
 
-.hard {
-  margin-top: 20px;
-  margin-left: 10px;
-  font-size: 20px;
+.button-holder {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .button {
-  display: block;
+  display: inline-block;
   width: 120px;
   height: 50px;
   border-radius: 2px;
   border: 2px solid #f8b830;
-  color: #0c0c0e;
+  color: #ffff;
   background-color: #71c5d0;
   font-family: Inter;
   font-size: 16px;
@@ -136,16 +110,12 @@
   background-color: #f8b830;
 }
 
-.tab {
-  display: none;
+.button:nth-child(1) {
+  margin-left: 20px;
 }
 
-.tab:target {
-  display: block;
-}
-
-.open-close {
-  display: none;
+.button:nth-child(3) {
+  margin-right: 20px;
 }
 
 .wrapper__footer {
@@ -181,7 +151,7 @@
   position: absolute;
   width: 30px;
   right: 0;
-  z-index: 1;
+  z-index: 4;
   animation: rotateAnimation 4s linear infinite;
 }
 
@@ -189,4 +159,30 @@
   100% {
     transform: rotate(360deg); /* Rotate 360 degrees */
   }
+}
+
+.console-container {
+  width: 500px;
+  height: 680px;
+  background: url(img/background-night.png);
+  background-size: contain;
+  position: absolute;
+  background-color: #f8b830;
+  z-index: 4;
+  display: none;
+}
+
+.console {
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+  border-top: 2px solid #71c5d0;
+  color: #ffff;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 30px;
+  text-align: center;
 }

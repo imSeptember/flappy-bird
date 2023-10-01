@@ -18,31 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "img/9.png",
   ];
 
-  //
-  // BUTTONS
-  //
-
-  const settings = document.querySelector(".settings");
-  const openClose = document.querySelector(".open-close");
-
-  function openOrClose() {
-    if (settings.classList.contains("hide")) {
-      openClose.style.display = "block";
-      settings.classList.remove("hide");
-      settings.textContent = "Close";
-    } else {
-      openClose.style.display = "none";
-      settings.classList.add("hide");
-      settings.textContent = "Settings";
-    }
-  }
-
-  settings.addEventListener("click", openOrClose);
-
-  //
-  // BUTTONS
-  //
-
   const start = document.querySelector(".start-game");
   const bird = document.querySelector(".bird");
   const gameDisplay = document.querySelector(".game-container");
@@ -79,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(wings, 200);
 
     function control(e) {
-      if (e.keyCode === 32) {
+      if (e.keyCode === 87) {
         jump();
       }
     }
@@ -133,12 +108,10 @@ document.addEventListener("DOMContentLoaded", () => {
           //
           // CONSOLE
           //
-          const topConsole = document.querySelector(".top-screen-content");
-          topConsole.textContent = obstacleLeft;
-          const botConsole = document.querySelector(".bot-screen-content");
-          botConsole.textContent = Math.round(obstacleBottom);
-          const birdPosition = document.querySelector(".bird-position");
-          birdPosition.textContent = birdBottom;
+
+          console.log(obstacleLeft);
+          console.log(Math.round(obstacleBottom));
+          console.log(birdBottom);
 
           //
           // CONSOLE

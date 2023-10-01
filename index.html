@@ -4,63 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Flappy bird</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <script src="index.js"></script>
+    <script src="dev.js"></script>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="game-container">
+            <div class="console-container">
+                <div class="button-holder">
+                    <a class="button" id="slide1">For devops</a>
+                    <a class="button" id="slide2">Rules</a>
+                    <a class="button" id="slide3">Leaderboard</a>
+                </div>
+                <div class="console">
+                    <p class="changedText">Settings</p>
+                </div>
+            </div>
             <img class="score" src="/img/0.png" alt="">
-            <img class="settings" src="img/settings2.png" alt="settings">
+            <img class="settings hide" src="img/settings2.png" alt="settings">
             <div class="start-game"></div>
             <div class="sky">
                 <img class="bird" src="/img/yellowbird-midflap.png" alt="">
             </div>
             <div class="ground"></div>
-        </div>
-        <div class="console-container">
-            <div class="open-close">
-                <div>
-                    <a class="button slide1" id="slide1" href="#tab_01">For developers</a>
-                    <a class="button slide2" href="#tab_02">Rules</a>
-                    <a class="button slide3" href="#tab_03">Leaderboard</a>
-                </div>
-                <div class="console tab" id="tab_01">
-                    <div class="top-screen">
-                        <h4>obsPosition: <span class="top-screen-content">0</span></h4>
-                    </div>
-                    <div class="gap">
-                        <h4>Gap: 430</h4>
-                        <h4>birdPosition: <span class="bird-position">0</span></h4>
-                    </div>
-                    <div class="bot-screen">
-                        <h4>obsHeight: <span class="bot-screen-content">0</span></h4>
-                    </div>
-                    <div class="hard">
-                        Coded collision:
-                        (obsPosition > 200
-                        && obsPosition < 280 && (birdPosition < obsHeight + 200 || birdPosition>
-                            obsHeight + gap - 150))
-                            || birdPosition === 0
-                    </div>
-                </div>
-                <div class="console tab" id="tab_02">
-                    <div class="top-screen">
-                        <p>- Start a game by clicking in the center of the screen.</p>
-                        <p>- Hit spacebar to jump.</p>
-                        <p>- To win the game, you must avoid hitting pipes.</p>
-                        <p>- If you successfully avoid 10 pipes, you will win.</p>
-                    </div>
-                </div>
-                <div class="console tab" id="tab_03">
-                    <div class="top-screen">
-                        <p>Leaderboard:</p>
-                    </div>
-
-                </div>
+            <div class="console-container">
             </div>
         </div>
     </div>
