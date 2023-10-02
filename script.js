@@ -23,6 +23,59 @@ document.addEventListener("DOMContentLoaded", () => {
   const gameDisplay = document.querySelector(".game-container");
 
   function checkWish() {
+    function generateObstacle() {
+      let randomHeight = Math.random() * 60;
+      let obstacleLeft = 500;
+      let obstacleBottom = randomHeight;
+      const obstacle = document.createElement("div");
+      const topObstacle = document.createElement("div");
+
+      if (!isGameOver) {
+        obstacle.classList.add("obstacle");
+        topObstacle.classList.add("topObstacle");
+      }
+      gameDisplay.appendChild(obstacle);
+      gameDisplay.appendChild(topObstacle);
+      obstacle.style.left = obstacleLeft + "px";
+      obstacle.style.bottom = obstacleBottom + "px";
+      obstacle.classList.add("temp-obs");
+      topObstacle.style.left = obstacleLeft + "px";
+      topObstacle.style.bottom = obstacleBottom + gap + "px";
+      topObstacle.classList.add("temp-obs");
+
+      function moveObstacle() {
+        if (!isGameOver) {
+          obstacleLeft -= 2;
+          obstacle.style.left = obstacleLeft + "px";
+          topObstacle.style.left = obstacleLeft + "px";
+          if (obstacleLeft === -60) {
+            clearInterval(timerId);
+            gameDisplay.removeChild(obstacle);
+            gameDisplay.removeChild(topObstacle);
+          }
+
+          if (
+            //check if obs in centre
+            (obstacleLeft > 200 &&
+              obstacleLeft < 280 &&
+              //check if bird can fly above bot obs
+              (birdBottom < obstacleBottom + 200 ||
+                // increase 200 if height container is making smaller
+                birdBottom > obstacleBottom + gap - 150)) ||
+            // increase 150 if height container  is making biger
+            birdBottom === 0
+          ) {
+            gameOver();
+            clearInterval(timerId);
+          }
+        }
+      }
+
+      let timerId = setInterval(moveObstacle, 20);
+      if (!isGameOver) setTimeout(generateObstacle, 3000);
+      setTimeout(scoreUp, 500);
+    }
+
     bird.style.display = "block";
     start.style.display = "none";
     let birdLeft = 220;
@@ -47,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     startGameLogic();
+    generateObstacle();
 
     let index = 0;
 
@@ -85,71 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreNumber.src = scoreArr[showScore];
       }
     }
-
-    function generateObstacle() {
-      let randomHeight = Math.random() * 60;
-      let obstacleLeft = 500;
-      let obstacleBottom = randomHeight;
-      const obstacle = document.createElement("div");
-      const topObstacle = document.createElement("div");
-
-      if (!isGameOver) {
-        obstacle.classList.add("obstacle");
-        topObstacle.classList.add("topObstacle");
-      }
-      gameDisplay.appendChild(obstacle);
-      gameDisplay.appendChild(topObstacle);
-      obstacle.style.left = obstacleLeft + "px";
-      obstacle.style.bottom = obstacleBottom + "px";
-      obstacle.classList.add("temp-obs");
-      topObstacle.style.left = obstacleLeft + "px";
-      topObstacle.style.bottom = obstacleBottom + gap + "px";
-      topObstacle.classList.add("temp-obs");
-
-      function moveObstacle() {
-        if (!isGameOver) {
-          obstacleLeft -= 2;
-          obstacle.style.left = obstacleLeft + "px";
-          topObstacle.style.left = obstacleLeft + "px";
-          if (obstacleLeft === -60) {
-            clearInterval(timerId);
-            gameDisplay.removeChild(obstacle);
-            gameDisplay.removeChild(topObstacle);
-          }
-
-          //
-          // CONSOLE
-          //
-
-          // console.log(obstacleLeft);
-          // console.log(Math.round(obstacleBottom));
-          // console.log(birdBottom);
-          console.log(birdBottom);
-          //
-          // CONSOLE
-          //
-
-          if (
-            //check if obs in centre
-            (obstacleLeft > 200 &&
-              obstacleLeft < 280 &&
-              //check if bird can fly above bot obs
-              (birdBottom < obstacleBottom + 200 ||
-                // increase 200 if height container is making smaller
-                birdBottom > obstacleBottom + gap - 150)) ||
-            // increase 150 if height container  is making biger
-            birdBottom === 0
-          ) {
-            gameOver();
-            clearInterval(timerId);
-          }
-        }
-      }
-      let timerId = setInterval(moveObstacle, 20);
-      if (!isGameOver) setTimeout(generateObstacle, 3000);
-      setTimeout(scoreUp, 500);
-    }
-    generateObstacle();
 
     const gameOverImg = document.querySelector(".end-game");
     gameOverImg.addEventListener("click", restart);
