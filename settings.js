@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "Press 'W' to jump!",
     " Dodge pipes!",
     " Successfully avoid 10 pipes to win the game!",
-    "Made by V. Kalenskiy",
-    "for RSSchool",
-    "2023",
+    "v.0.4",
+    "Known bugs:",
+    "Sometimes obstacles don't appear when restarting the game. Please try reloading the page.",
   ];
 
   const settings = document.querySelector(".settings");

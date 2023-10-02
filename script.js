@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
           obstacle.style.left = obstacleLeft + "px";
           topObstacle.style.left = obstacleLeft + "px";
           if (obstacleLeft === -60) {
-            clearInterval(timerId);
+            clearInterval(ObsTimerId);
             gameDisplay.removeChild(obstacle);
             gameDisplay.removeChild(topObstacle);
           }
@@ -66,19 +66,18 @@ document.addEventListener("DOMContentLoaded", () => {
             birdBottom === 0
           ) {
             gameOver();
-            clearInterval(timerId);
+            clearInterval(ObsTimerId);
           }
         }
       }
 
-      let timerId = setInterval(moveObstacle, 20);
+      let ObsTimerId = setInterval(moveObstacle, 20);
       if (!isGameOver) setTimeout(generateObstacle, 3000);
       setTimeout(scoreUp, 500);
     }
 
     bird.style.display = "block";
     start.style.display = "none";
-    let birdLeft = 220;
     let birdBottom = 250;
     let gravity = 2;
     let isGameOver = false;
@@ -164,7 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
       removeObs();
       gameOverImg.style.display = "none";
       bird.style.display = "block";
-      birdLeft = 220;
       birdBottom = 250;
       document.addEventListener("keyup", control);
       startGameLogic();
