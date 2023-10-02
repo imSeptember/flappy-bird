@@ -67,12 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
           ) {
             gameOver();
             clearInterval(ObsTimerId);
+            clearInterval(generateObstacle);
           }
         }
       }
 
       let ObsTimerId = setInterval(moveObstacle, 20);
-      if (!isGameOver) setTimeout(generateObstacle, 3000);
+      setTimeout(generateObstacle, 3000);
       setTimeout(scoreUp, 500);
     }
 
