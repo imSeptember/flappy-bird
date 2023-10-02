@@ -36,17 +36,27 @@ document.addEventListener("DOMContentLoaded", () => {
       bird.style.bottom = birdBottom + "px";
     }
 
-    let gameTimerId = setInterval(startGame, 20);
+    let gameTimerId;
+
+    function startGameLogic() {
+      gameTimerId = setInterval(startGame, 20);
+    }
+
+    function stopGameLogic() {
+      clearInterval(gameTimerId);
+    }
+
+    startGameLogic();
 
     let index = 0;
 
     function wings() {
       if (!isGameOver) {
         bird.src = flyAnimation[index];
-        index++; // Increment the index
+        index++;
 
         if (index >= flyAnimation.length) {
-          index = 0; // Reset the index if it exceeds the array length
+          index = 0;
         }
       }
     }
@@ -91,8 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
       gameDisplay.appendChild(topObstacle);
       obstacle.style.left = obstacleLeft + "px";
       obstacle.style.bottom = obstacleBottom + "px";
+      obstacle.classList.add("temp-obs");
       topObstacle.style.left = obstacleLeft + "px";
       topObstacle.style.bottom = obstacleBottom + gap + "px";
+      topObstacle.classList.add("temp-obs");
 
       function moveObstacle() {
         if (!isGameOver) {
@@ -109,10 +121,10 @@ document.addEventListener("DOMContentLoaded", () => {
           // CONSOLE
           //
 
-          console.log(obstacleLeft);
-          console.log(Math.round(obstacleBottom));
+          // console.log(obstacleLeft);
+          // console.log(Math.round(obstacleBottom));
+          // console.log(birdBottom);
           console.log(birdBottom);
-
           //
           // CONSOLE
           //
@@ -139,11 +151,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     generateObstacle();
 
+    const gameOverImg = document.querySelector(".end-game");
+    gameOverImg.addEventListener("click", restart);
+
     function gameOver() {
-      clearInterval(gameTimerId);
-      console.log("game over");
+      stopGameLogic();
       isGameOver = true;
       document.removeEventListener("keyup", control);
+      gameOverImg.style.display = "block";
+    }
+
+    function removeObs() {
+      const elementsToRemove = gameDisplay.querySelectorAll(".temp-obs");
+      elementsToRemove.forEach((element) => {
+        gameDisplay.removeChild(element);
+      });
+    }
+
+    function restart() {
+      isGameOver = false;
+      scoreNumber.src = scoreArr[0];
+      showScore = -1;
+      removeObs();
+      gameOverImg.style.display = "none";
+      bird.style.display = "block";
+      birdLeft = 220;
+      birdBottom = 250;
+      document.addEventListener("keyup", control);
+      startGameLogic();
     }
   }
 

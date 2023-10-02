@@ -38,6 +38,18 @@
   transform: translate(-50%, -50%);
 }
 
+.end-game {
+  background: url(img/gameover.png);
+  width: 192px;
+  height: 42px;
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
 .sky {
   background: url(img/fb-game-background.png);
   width: 500px;
