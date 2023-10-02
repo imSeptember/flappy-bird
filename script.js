@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
           ) {
             gameOver();
             clearInterval(ObsTimerId);
-            clearInterval(generateObstacle);
           }
         }
       }
@@ -96,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function stopGameLogic() {
+      clearInterval(generateObstacle);
       clearInterval(gameTimerId);
     }
 
