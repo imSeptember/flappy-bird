@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let gap = 430;
   let showScore = -1;
   let index = 0;
+  let isPaused = false;
 
   function scoreUp() {
     if (isGameOver) {
@@ -115,6 +116,23 @@ document.addEventListener("DOMContentLoaded", () => {
     clearInterval(ObsTimerId);
   }
 
+  let pauseTimerId;
+
+  function togglePause() {
+    isPaused = true;
+    if (isPaused) {
+      clearInterval(gameTimerId);
+      clearInterval(ObsTimerId);
+      clearTimeout(scoreTimeId);
+      clearTimeout(genTimerID);
+    } else {
+      gameTimerId = setInterval(startGame, 20); // Resume the game loop
+      ObsTimerId = setInterval(moveObstacle, 20);
+      genTimerID = setTimeout(generateObstacle, 3000);
+      setTimeout(scoreUp, 500);
+    }
+  }
+
   function wings() {
     if (!isGameOver) {
       bird.src = flyAnimation[index];
@@ -158,9 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
     clearInterval(ObsTimerId);
     clearTimeout(scoreTimeId);
     clearTimeout(genTimerID);
-    // const formDataJSON = JSON.stringify(showScore);
-    // localStorage.setItem("formData", formDataJSON);
-    saveScore(showScore);
+    const formDataJSON = JSON.stringify(showScore);
+    localStorage.setItem("formData", formDataJSON);
   }
 
   function gameOver() {
@@ -174,7 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
     clearInterval(ObsTimerId);
     clearTimeout(scoreTimeId);
     clearTimeout(genTimerID);
-    saveScore(showScore);
   }
 
   function removeObs() {
@@ -208,4 +224,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
   start.addEventListener("click", checkWish);
   sky.addEventListener("click", jump);
+
+  const textArr = [
+    "Press 'W' or hit a sky to jump!",
+    " Dodge pipes!",
+    " Successfully avoid 10 pipes to win the game!",
+    "made",
+    "Known bugs:",
+    "Sometimes obstacles don't appear when restarting the game. Please try reloading the page.",
+  ];
+
+  const settings = document.querySelector(".settings");
+  const console = document.querySelector(".console-container");
+
+  function openOrClose() {
+    if (settings.classList.contains("hide")) {
+      console.style.display = "block";
+      settings.classList.toggle("hide");
+      settings.style.animation = "rotateAnimation 4s linear infinite";
+      togglePause();
+    } else {
+      console.style.display = "none";
+      settings.classList.toggle("hide");
+      settings.style.animation = "";
+    }
+  }
+
+  settings.addEventListener("click", openOrClose);
+
+  const devopsBnt = document.getElementById("slide1");
+  const rulesBnt = document.getElementById("slide2");
+  const leaderBnt = document.getElementById("slide3");
+  const text = document.querySelector(".changedText");
+
+  function changeAbout() {
+    text.textContent = `
+    ${textArr[3]} 
+    ${textArr[4]}
+    ${textArr[5]}`;
+  }
+
+  function changeRules() {
+    text.textContent = `
+    ${textArr[0]}
+    ${textArr[1]}
+    ${textArr[2]}`;
+  }
+  devopsBnt.addEventListener("click", changeAbout);
+  rulesBnt.addEventListener("click", changeRules);
 });

@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "Press 'W' or hit a sky to jump!",
     " Dodge pipes!",
     " Successfully avoid 10 pipes to win the game!",
-    "v.0.4",
-    "Known bugs:",
-    "Sometimes obstacles don't appear when restarting the game. Please try reloading the page.",
+    "made by V.Kalenskiy",
+    "for RS School",
+    "2023",
   ];
 
   const settings = document.querySelector(".settings");

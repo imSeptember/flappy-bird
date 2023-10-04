@@ -1,69 +1,35 @@
-document.addEventListener("DOMContentLoaded", () => {
-  //   const leaderBoard = {
-  //     1: 0,
-  //     2: 0,
-  //     3: 0,
-  //     4: 0,
-  //     5: 0,
-  //     6: 0,
-  //     7: 0,
-  //     8: 0,
-  //     9: 0,
-  //     10: 0,
-  //   };
+function saveScore(score) {
+  // Get the previous scores from localStorage or initialize an empty array
+  const previousScores = JSON.parse(localStorage.getItem("scores")) || [];
 
-  getTheLastData = localStorage.getItem("formData");
-  console.log(getTheLastData + "getTheLastData");
+  // Add the current score to the array
+  previousScores.push(score);
 
-  const leaderBoard = {
-    1: getTheLastData,
-    2: getTheLastData,
-    3: getTheLastData,
-    4: getTheLastData,
-    5: 0,
-    6: 0,
-    7: 0,
-    8: 0,
-    9: 0,
-    10: 0,
-  };
-  console.log(leaderBoard);
-});
+  // If there are more than 10 scores, remove the oldest one
+  if (previousScores.length > 10) {
+    previousScores.shift(); // Remove the first (oldest) score
+  }
 
-// let theFlag;
-// console.log(theFlag);
+  // Save the updated scores back to localStorage
+  localStorage.setItem("scores", JSON.stringify(previousScores));
+}
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const signupLink = document.getElementById("signupLink");
+function displayScores() {
+  const previousScores = JSON.parse(localStorage.getItem("scores")) || [];
+  const scoresContainer = document.querySelector(".changedText");
+  // changedText;
 
-//   signupLink.addEventListener("click", function (event) {
-//     event.preventDefault(); // Prevent the default link behavior
+  // Clear any previous scores in the container
+  scoresContainer.innerHTML = "";
 
-//     const firstName = document.getElementById("his__name").value;
-//     const lastName = document.getElementById("his__surname").value;
-//     const email = document.getElementById("his__mail").value;
-//     const password = document.getElementById("his__pass").value;
-
-//     // Create an object to store the form data
-//     const formData = {
-//       firstName: firstName,
-//       lastName: lastName,
-//       email: email,
-//       password: password,
-//     };
-
-//     // Convert the form data object to a JSON string
-//     const formDataJSON = JSON.stringify(formData);
-//     // console.log(formDataJSON);
-
-//     // Store the JSON string in local storage
-//     localStorage.setItem("formData", formDataJSON);
-
-//     // Redirect to another page or perform other actions as needed
-//     // For example, you can use window.location.href to navigate to a new page
-//     // window.location.href = 'success.html';
-
-//     getTheData = localStorage.getItem("formData");
-//     console.log(getTheData);
-//   });
-// });
+  // Iterate over the last 10 scores (or less if there are fewer scores)
+  for (
+    let i = Math.max(0, previousScores.length - 10);
+    i < previousScores.length;
+    i++
+  ) {
+    const scoreItem = document.createElement("div");
+    scoreItem.textContent = `Game ${i + 1}: ${previousScores[i]} points`;
+    scoresContainer.appendChild(scoreItem);
+  }
+}

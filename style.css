@@ -94,6 +94,7 @@ body {
   display: none;
   left: 220px;
   bottom: 250px;
+  user-select: none;
 }
 
 .obstacle {
