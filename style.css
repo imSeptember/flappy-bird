@@ -50,6 +50,18 @@
   display: none;
 }
 
+.win-game {
+  background: url(img/win.png);
+  width: 318px;
+  height: 42px;
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
 .sky {
   background: url(img/fb-game-background.png);
   width: 500px;
@@ -141,16 +153,19 @@
     rgb(133, 133, 133)
   );
   padding: 10px;
+  width: 100%;
+  font-size: 25px;
 }
 
 .wrapper__footer img {
-  width: 200px;
-  margin-left: 90px;
+  width: 135px;
+  height: 50px;
 }
 
 .wrapper__footer div {
   font-size: 20px;
   color: white;
+  width: 135px;
 }
 
 .wrapper__footer a {
