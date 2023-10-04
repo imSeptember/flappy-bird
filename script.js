@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bird = document.querySelector(".bird");
   const gameDisplay = document.querySelector(".game-container");
   const scoreNumber = document.querySelector(".score");
+  const sky = document.querySelector(".sky");
 
   let scoreTimeId;
   let ObsTimerId;
@@ -165,6 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
     stopGameLogic();
     isGameOver = true;
     document.removeEventListener("keyup", control);
+    document.removeEventListener("click", jump);
     gameDisplay.style.animation = "none"; // Stop the background animation
     clearInterval(gameTimerId);
     clearInterval(ObsTimerId);
@@ -188,6 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
     gameWinImg.style.display = "none";
     gameOverImg.style.display = "none";
     document.addEventListener("keyup", control);
+    sky.addEventListener("click", jump);
     startGameLogic();
     generateObstacle();
   }
@@ -201,4 +204,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   start.addEventListener("click", checkWish);
+  sky.addEventListener("click", jump);
 });

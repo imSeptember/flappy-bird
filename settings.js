@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const textArr = [
-    "Press 'W' to jump!",
+    "Press 'W' or hit a sky to jump!",
     " Dodge pipes!",
     " Successfully avoid 10 pipes to win the game!",
     "v.0.4",

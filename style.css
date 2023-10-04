@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+body {
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(40, 40, 40),
+    rgb(133, 133, 133)
+  );
+}
+
 .score {
   position: absolute;
   z-index: 4;
@@ -17,6 +25,7 @@
   margin-top: 10px;
   border: 4px solid #f8b830;
   border-radius: 4px;
+  background-color: #83e28e;
 }
 
 .wrapper {
@@ -215,8 +224,3 @@
   margin-top: 30px;
   text-align: center;
 }
-
-/* .changedText {
-  width: 100%;
-  height: 100%;
-} */
