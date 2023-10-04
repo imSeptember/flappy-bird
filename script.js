@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Check for collision
       if (
-        obstacleLeft > 200 &&
-        obstacleLeft < 280 &&
+        obstacleLeft > 150 &&
+        obstacleLeft < 230 &&
         (birdBottom < obstacleBottom + 200 ||
           birdBottom > obstacleBottom + gap - 150)
       ) {

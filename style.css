@@ -18,7 +18,8 @@ body {
 }
 
 .game-container {
-  width: 500px;
+  width: 400px;
+  /* width: 500px; */
   height: 680px;
   position: relative;
   overflow: hidden;
@@ -73,14 +74,14 @@ body {
 
 .sky {
   background: url(img/fb-game-background.png);
-  width: 500px;
+  width: 400px;
   height: 580px;
   position: absolute;
 }
 
 .ground {
   background: url(img/bottom-background.png);
-  width: 500px;
+  width: 400px;
   height: 100px;
   position: absolute;
   top: 580px;
@@ -92,7 +93,7 @@ body {
   width: 60px;
   height: 45px;
   display: none;
-  left: 220px;
+  left: 170px;
   bottom: 250px;
   user-select: none;
 }
@@ -202,7 +203,7 @@ body {
 }
 
 .console-container {
-  width: 500px;
+  width: 400px;
   height: 680px;
   background: url(img/background-night.png);
   background-size: contain;
