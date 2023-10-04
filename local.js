@@ -17,7 +17,6 @@ function saveScore(score) {
 function displayScores() {
   const previousScores = JSON.parse(localStorage.getItem("scores")) || [];
   const scoresContainer = document.querySelector(".changedText");
-  // changedText;
 
   // Clear any previous scores in the container
   scoresContainer.innerHTML = "";

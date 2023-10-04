@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const devopsBnt = document.getElementById("slide1");
   const rulesBnt = document.getElementById("slide2");
-  const leaderBnt = document.getElementById("slide3");
   const text = document.querySelector(".changedText");
 
   function changeAbout() {
