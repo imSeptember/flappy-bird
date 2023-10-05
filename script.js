@@ -78,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
         gameDisplay.removeChild(topObstacle);
       }
 
-      // Check for collision
       if (
         obstacleLeft > 150 &&
         obstacleLeft < 230 &&
@@ -94,12 +93,36 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(scoreUp, 500);
 
     if (!isGameOver) {
-      // Call moveObstacle after a short delay
       setTimeout(() => {
         moveObstacle();
       }, 0);
     }
   }
+
+  // function generateGround() {
+  //   if (isGameOver) return;
+
+  //   let groundLeft = 200;
+  //   const ground = document.createElement("div");
+
+  //   ground.classList.add("ground");
+  //   gameDisplay.appendChild(ground);
+  //   ground.style.left = groundLeft + "px";
+
+  //   function moveGround() {
+  //     if (isGameOver) return;
+
+  //     groundLeft -= 2;
+  //     ground.style.left = groundLeft + "px";
+
+  //     if (groundLeft === -900) {
+  //       gameDisplay.removeChild(ground);
+  //     }
+  //   }
+
+  //   groundTimerId = setInterval(moveGround, 20);
+  //   genGroundTimerID = setTimeout(generateGround, 3000);
+  // }
 
   function startGame() {
     birdBottom -= gravity;
@@ -107,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function startGameLogic() {
+    generateGround();
     gameTimerId = setInterval(startGame, 20);
   }
 
@@ -153,13 +177,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.removeEventListener("keyup", control);
     sky.removeEventListener("click", jump);
     gameWinImg.style.display = "block";
-    gameDisplay.style.animation = "none"; // Stop the background animation
+    gameDisplay.style.animation = "none";
     clearInterval(gameTimerId);
     clearInterval(ObsTimerId);
     clearTimeout(scoreTimeId);
     clearTimeout(genTimerID);
-    // const formDataJSON = JSON.stringify(showScore);
-    // localStorage.setItem("formData", formDataJSON);
     saveScore(showScore);
   }
 
@@ -169,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     isGameOver = true;
     document.removeEventListener("keyup", control);
     sky.removeEventListener("click", jump);
-    gameDisplay.style.animation = "none"; // Stop the background animation
+    gameDisplay.style.animation = "none";
     clearInterval(gameTimerId);
     clearInterval(ObsTimerId);
     clearTimeout(scoreTimeId);
@@ -209,3 +231,17 @@ document.addEventListener("DOMContentLoaded", () => {
   start.addEventListener("click", checkWish);
   sky.addEventListener("click", jump);
 });
+
+const logText = `Вёрстка +10
+реализован интерфейс игры +5
+в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс +5
+Логика игры. Ходы, перемещения фигур, другие действия игрока подчиняются определённым свойственным игре правилам +10
+Реализовано завершение игры при достижении игровой цели +10
+По окончанию игры выводится её результат, например, количество ходов, время игры, набранные баллы, выигрыш или поражение и т.д +10
+Есть таблица результатов, в которой сохраняются результаты 10 игр с наибольшим счетом (лучшим временем и т.п.) или просто 10 последних игр (хранится в local storage) +10
+Анимации или звуки, или настройки игры. Баллы начисляются за любой из перечисленных пунктов +10
+Очень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения +10
+высокое качество оформления приложения предполагает собственное оригинальное оформление равное или отличающееся в лучшую сторону по сравнению с демо`;
+
+console.log(logText);
+console.log("Total: 60");

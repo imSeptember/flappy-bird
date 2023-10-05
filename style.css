@@ -226,3 +226,14 @@ body {
   margin-top: 30px;
   text-align: center;
 }
+
+.leaderbord-item {
+  display: flex;
+  align-items: center;
+}
+
+.changedText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

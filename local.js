@@ -3,8 +3,9 @@ function saveScore(score) {
   const previousScores = JSON.parse(localStorage.getItem("scores")) || [];
 
   // Add the current score to the array
-  previousScores.push(score);
-
+  if (score < 0) {
+    previousScores.push(1);
+  } else previousScores.push(score);
   // If there are more than 10 scores, remove the oldest one
   if (previousScores.length > 10) {
     previousScores.shift(); // Remove the first (oldest) score
@@ -28,7 +29,34 @@ function displayScores() {
     i++
   ) {
     const scoreItem = document.createElement("div");
-    scoreItem.textContent = `Game ${i + 1}: ${previousScores[i]} points`;
+    scoreItem.classList.add("leaderbord-item");
+    // scoreItem.style.display = "flex";
+    // scoreItem.style.alignItems = "center";
+    // if (i + 1 == 10) {
+    //   scoreItem.style.marginRight = "40px";
+    // }
+    scoreItem.textContent = `Game ${i + 1}: ${previousScores[i]}`;
     scoresContainer.appendChild(scoreItem);
+    const scoreMedal = document.createElement("img");
+
+    switch (previousScores[i]) {
+      case 10:
+        scoreMedal.src = "img/gold-medal.png";
+        break;
+      case 5:
+      case 6:
+      case 7:
+      case 8:
+      case 9:
+        scoreMedal.src = "img/silver-medal.png";
+        break;
+      default:
+        scoreMedal.src = "img/copper-medal.png";
+        break;
+    }
+    scoreMedal.style.marginLeft = "20px";
+    scoreMedal.style.width = "20px";
+    scoreMedal.style.height = "20px";
+    scoreItem.appendChild(scoreMedal);
   }
 }

@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   const textArr = [
     "Press 'W' or hit a sky to jump!",
-    " Dodge pipes!",
-    " Successfully avoid 10 pipes to win the game!",
-    "made by V.Kalenskiy",
-    "for RS School",
+    `Dodge pipes! If you fail - press "Game Over" to restart.`,
+    "Successfully avoid 10 pipes to win the game!",
+    "Made by V.Kalenskiy,",
+    "for RS School,",
     "2023",
   ];
 
