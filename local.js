@@ -30,11 +30,6 @@ function displayScores() {
   ) {
     const scoreItem = document.createElement("div");
     scoreItem.classList.add("leaderbord-item");
-    // scoreItem.style.display = "flex";
-    // scoreItem.style.alignItems = "center";
-    // if (i + 1 == 10) {
-    //   scoreItem.style.marginRight = "40px";
-    // }
     scoreItem.textContent = `Game ${i + 1}: ${previousScores[i]}`;
     scoresContainer.appendChild(scoreItem);
     const scoreMedal = document.createElement("img");

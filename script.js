@@ -99,30 +99,40 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // function generateGround() {
-  //   if (isGameOver) return;
+  function generateGround() {
+    if (isGameOver) return;
 
-  //   let groundLeft = 200;
-  //   const ground = document.createElement("div");
+    let groundLeft = 0;
+    const ground1 = document.createElement("div");
+    const ground2 = document.createElement("div");
 
-  //   ground.classList.add("ground");
-  //   gameDisplay.appendChild(ground);
-  //   ground.style.left = groundLeft + "px";
+    ground1.classList.add("ground");
+    ground2.classList.add("ground");
 
-  //   function moveGround() {
-  //     if (isGameOver) return;
+    gameDisplay.appendChild(ground1);
+    gameDisplay.appendChild(ground2);
 
-  //     groundLeft -= 2;
-  //     ground.style.left = groundLeft + "px";
+    ground1.style.left = groundLeft + "px";
+    ground2.style.left = groundLeft + 400 + "px";
 
-  //     if (groundLeft === -900) {
-  //       gameDisplay.removeChild(ground);
-  //     }
-  //   }
+    function moveGround() {
+      if (isGameOver) return;
 
-  //   groundTimerId = setInterval(moveGround, 20);
-  //   genGroundTimerID = setTimeout(generateGround, 3000);
-  // }
+      groundLeft -= 2;
+      ground1.style.left = groundLeft + "px";
+      ground2.style.left = groundLeft + 400 + "px";
+
+      if (groundLeft <= -400) {
+        gameDisplay.removeChild(ground1);
+        gameDisplay.removeChild(ground2);
+        groundLeft += 400;
+        ground1.style.left = groundLeft + "px";
+        generateGround();
+      }
+    }
+
+    groundTimerId = setInterval(moveGround, 20);
+  }
 
   function startGame() {
     birdBottom -= gravity;
@@ -206,10 +216,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function removeGround() {
+    const elementsToRemove = gameDisplay.querySelectorAll(".ground");
+    elementsToRemove.forEach((element) => {
+      gameDisplay.removeChild(element);
+    });
+  }
+
   function restart() {
     isGameOver = false;
     showScore = -1;
     removeObs();
+    removeGround();
     birdBottom = 250;
     scoreNumber.src = scoreArr[0];
     gameWinImg.style.display = "none";
