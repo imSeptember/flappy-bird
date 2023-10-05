@@ -19,7 +19,6 @@ body {
 
 .game-container {
   width: 400px;
-  /* width: 500px; */
   height: 680px;
   position: relative;
   overflow: hidden;
